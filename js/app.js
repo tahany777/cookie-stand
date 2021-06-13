@@ -26,7 +26,6 @@ function getAmoutOfCookies(customer, average) {
   totalItems.textContent = (`Total : ${sum} cookies`);
 }
 
-//console.log(generateRandomCustomer(23, 65));
 
 let seattle = {
   name: 'Seattle',
@@ -36,7 +35,7 @@ let seattle = {
   getRandomCustomer: generateRandomCustomer(this.minCustomer, this.maxCustomer),
   amountOfCookies: getAmoutOfCookies(this.getRandomCustomer, this.AvgCookie),
 };
-/*
+
 let tokyo = {
   name: 'Tokyo',
   minCustomer: 3,
@@ -76,11 +75,11 @@ let lima = {
   getRandomCustomer: generateRandomCustomer(this.minCustomer, this.maxCustomer),
   amountOfCookies: getAmoutOfCookies(this.getRandomCustomer, this.AvgCookie),
 };
-*/
+
 seattle();
-//tokyo();
-//dubai();
-//paris();
-//lima();
+tokyo();
+dubai();
+paris();
+lima();
 
 
