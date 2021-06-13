@@ -1,0 +1,52 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    background-color: #fff4fd59;
+    margin: 10px auto;
+}
+h1 {
+    color: #796782;
+}
+h1 , h2, h3 {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif; 
+}
+h2 {
+    font-size: 24px;
+    font-family: 'Zilla Slab Highlight', cursive;
+}
+ul {
+    list-style: inside;
+    margin: 10px;
+    font-size: 20px;
+    font-style: oblique;
+    padding: 10px;
+}
+ul.locations {
+    display: flex;
+    margin: 20px;
+}
+li {
+    padding: 5px;
+}
+.hours {
+    margin: 10px;
+}
+p {
+    padding: 10px;
+    margin: 10px;
+}
+a {
+    text-decoration: none;
+    font-size: 20px;
+    display: block;
+    margin: 10px;
+    padding: 10px;
+    font-weight: bold;
+}
+a:hover {
+    color: rgb(135 51 171);
+}
