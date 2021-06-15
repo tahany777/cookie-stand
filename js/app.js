@@ -102,3 +102,4 @@ let lima = new SalmonCookie('Lima', 2, 16, 4.6);
 lima.getCustomer();
 lima.render();
 getFooter();
+

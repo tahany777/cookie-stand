@@ -1,9 +1,61 @@
+:root {
+    --mainColor: #eaeaea;
+    --secondaryColor: #fff;
+    --borderColor: #c1c1c1;
+    --mainText: black;
+    --secondaryText: #4b5156;
+    --themeDoBorder: #24292e;
+    --previewBg: rgba(251, 249, 243, 0.8);
+    --previewShadow: #f0ead6;
+    --btnColor: black;
+}
+
 * {
     font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
 }
 body {
     background-color: #fff4fd59;
     margin: 10px auto;
+}
+header, nav {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ flex-direction: row;
+}
+header img {
+    width: 300px;
+    height: 100px;
+}
+article {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+section, ul {
+    list-style: inside;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+section, .locations{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;   
+}
+.color {
+    display: block;
+    text-align: center;
+    margin: 30px;
+}
+.hours {
+    display: block;
+    text-align: center;
+}
+ul li {
+    padding: 5px;
 }
 h1 {
     color: #796782;
@@ -11,11 +63,7 @@ h1 {
 h1 , h2, h3 {
     font-size: 32px;
     font-weight: bold;
-    margin: 10px;
-    font-family: Georgia, 'Times New Roman', Times, serif; 
-}
-h2 {
-    font-size: 24px;
+    margin: 15px;
     font-family: 'Zilla Slab Highlight', cursive;
 }
 table {
