@@ -107,7 +107,7 @@ function addNewLocation(event) {
   let max = event.target.maxCustomer.value;
   let min = event.target.minCustomer.value;
   let avg = event.target.avg.value;
-  while (min < max || (name !== '' && name === isNaN())) {
+  while (min < max) {
     let newRow = new SalmonCookie(name, max, min, avg);
     newRow.getCustomer();
     getFooter();
