@@ -30,30 +30,6 @@ function getFirstHeader() {
   tableRowHeader.appendChild(lastRowData);
   lastRowData.textContent = 'Daily totals';
 }
-function getFooter() {
-  let tableRowFooter = document.createElement('tr');
-  sales.appendChild(tableRowFooter);
-  let firstData = document.createElement('th');
-  tableRowFooter.appendChild(firstData);
-  firstData.textContent = 'Totals';
-  let totalHours = 0;
-  let totalAll = 0;
-  for (let i = 0; i < hours.length; i++) {
-    totalHours = 0;
-    for (let j = 0; j < SalmonCookie.allCookies.length; j++) {
-      totalHours = 0;
-      let total = SalmonCookie.allCookies[j].cookiesPerHour[i];
-      totalHours += total;
-      totalAll += totalHours;
-    }
-    let innerRowData = document.createElement('th');
-    tableRowFooter.appendChild(innerRowData);
-    innerRowData.textContent = totalHours;
-  }
-  let lastData = document.createElement('th');
-  tableRowFooter.appendChild(lastData);
-  lastData.textContent = totalAll;
-}
 SalmonCookie.prototype.render = function () {
   let innerTableRow = document.createElement('tr');
   sales.appendChild(innerTableRow);
@@ -76,10 +52,30 @@ SalmonCookie.prototype.getCustomer = function () {
     this.total += cookie;
   }
 };
-function getRandom(min, max) {
-  let customer = Math.floor(Math.random() * (max - min + 1) + min);
-  return customer;
+function getFooter() {
+  let tableRowFooter = document.createElement('tr');
+  sales.appendChild(tableRowFooter);
+  let firstData = document.createElement('th');
+  tableRowFooter.appendChild(firstData);
+  firstData.textContent = 'Totals';
+  let totalHours = 0;
+  let totalAll = 0;
+  for (let i = 0; i < hours.length; i++) {
+    totalHours = 0;
+    for (let j = 0; j < SalmonCookie.allCookies.length; j++) {
+      let total1 = SalmonCookie.allCookies[j].cookiesPerHour[i];
+      totalHours += total1;
+      totalAll += total1;
+    }
+    let innerRowData = document.createElement('th');
+    tableRowFooter.appendChild(innerRowData);
+    innerRowData.textContent = totalHours;
+  }
+  let lastData = document.createElement('th');
+  tableRowFooter.appendChild(lastData);
+  lastData.textContent = totalAll;
 }
+
 getFirstHeader();
 let seattle = new SalmonCookie('Seattle', 56, 23, 6.3);
 seattle.getCustomer();
@@ -103,23 +99,24 @@ lima.render();
 getFooter();
 function addNewLocation(event) {
   event.preventDefault();
-  
   let name = event.target.locationName.value;
   let max = event.target.maxCustomer.value;
   let min = event.target.minCustomer.value;
   let avg = event.target.avg.value;
-  while (min > max) {
-    hint.innerHTML = 'please the min must be less than max';
-    break;
-  }
-    sales.deleteRow(-1);
+  while (min < max) {
     let newRow = new SalmonCookie(name, max, min, avg);
+    sales.deleteRow(SalmonCookie.allCookies.length);
     newRow.getCustomer();
-    SalmonCookie.allCookies.push(newRow);
     newRow.render();
     getFooter();
-    
     locationForm.reset();
+    break;
+  }
+  hint.innerHTML = 'please the min must be less than max';
+  locationForm.reset();
 }
 locationForm.addEventListener('submit', addNewLocation);
-
+function getRandom(min, max) {
+  let customer = Math.floor(Math.random() * (max - min + 1) + min);
+  return customer;
+}
