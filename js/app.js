@@ -103,19 +103,23 @@ lima.render();
 getFooter();
 function addNewLocation(event) {
   event.preventDefault();
+  
   let name = event.target.locationName.value;
   let max = event.target.maxCustomer.value;
   let min = event.target.minCustomer.value;
   let avg = event.target.avg.value;
-  while (min < max) {
-    let newRow = new SalmonCookie(name, max, min, avg);
-    newRow.getCustomer();
-    getFooter();
-    newRow.render();
-    locationForm.addEventListener('submit', addNewLocation);
+  while (min > max) {
+    hint.innerHTML = 'please the min must be less than max';
     break;
   }
-  hint.innerHTML = 'please the first field must be a name and min must be less than max';
+    sales.deleteRow(-1);
+    let newRow = new SalmonCookie(name, max, min, avg);
+    newRow.getCustomer();
+    SalmonCookie.allCookies.push(newRow);
+    newRow.render();
+    getFooter();
+    
+    locationForm.reset();
 }
 locationForm.addEventListener('submit', addNewLocation);
 
